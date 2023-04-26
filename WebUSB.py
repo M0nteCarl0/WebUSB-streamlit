@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-html_code = """
+requset_devices = """
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +9,8 @@ html_code = """
     <title>WebUSB Example</title>
     <script>
         async function connect() {
-            const device = await navigator.usb.requestDevice({ filters: [{ vendorId: 0x2B3E }] });
-            console.log(device);
+            const device = await navigator.usb.requestDevice({ filters: [{ deviceClass : 0x0 }] });
+            alert(device);
         }
     </script>
 </head>
@@ -20,7 +20,8 @@ html_code = """
 </html>
 """
 
-st.components.v1.html(html_code)
+
+st.components.v1.html(requset_devices)
 
 
 
